@@ -586,8 +586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58551d87c89e7a4419714d8c8ea0e5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  healthMax: 50
+  health: 5
+  healthMax: 5
   collectedOrbs: 3
 --- !u!50 &62101113
 Rigidbody2D:
@@ -4840,7 +4840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af18a5c24f08224e8201e893ef27a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 1
 --- !u!50 &1023618140
 Rigidbody2D:
   serializedVersion: 4
@@ -5645,7 +5645,7 @@ MonoBehaviour:
   lineDistance: 5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isPlayerInRange: 0
   timeBetweenShots: 1
   lastShotTime: 1
