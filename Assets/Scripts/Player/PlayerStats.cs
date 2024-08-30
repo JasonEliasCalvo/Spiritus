@@ -35,6 +35,6 @@ public class PlayerStats : MonoBehaviour
     private void PlayerDeath()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        MenuManager.Instance.GameOver.SetActive(true);
     }
 }

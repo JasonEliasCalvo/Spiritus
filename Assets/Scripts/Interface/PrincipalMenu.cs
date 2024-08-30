@@ -6,21 +6,45 @@ using UnityEngine.SceneManagement;
 public class PrincipalMenu : MonoBehaviour
 {
     public Animator animator;
+    public GameObject continueButton;
+
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("LastSceneIndex"))
+        {
+            continueButton.SetActive(true);
+        }
+        else
+        {
+            continueButton.SetActive(false);
+        }
+    }
 
     public void Play()
     {
-        StartCoroutine(ChangeScene());
+        StartCoroutine(ChangeScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void Exit()
     {
         Application.Quit();
     }
-
-    IEnumerator ChangeScene()
+    public void Continue()
+    {
+        int lastSceneIndex = PlayerPrefs.GetInt("LastSceneIndex");
+        StartCoroutine(ChangeScene(lastSceneIndex));
+    }
+    IEnumerator ChangeScene(int sceneIndex)
     {
         animator.SetTrigger("Play");
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void SaveScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("LastSceneIndex", currentSceneIndex);
+        PlayerPrefs.Save();
     }
 }
