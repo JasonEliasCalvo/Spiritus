@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeState(GameState.WorldExplored);
+        MenuManager.Instance.SaveScene();
     }
 
     public void Update()

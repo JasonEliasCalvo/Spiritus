@@ -15,7 +15,7 @@ public class WinMenu : MonoBehaviour
     IEnumerator ChangeScene()
     {
         animator.SetTrigger("Play");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

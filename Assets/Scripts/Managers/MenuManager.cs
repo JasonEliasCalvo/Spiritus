@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
@@ -19,12 +20,20 @@ public class MenuManager : MonoBehaviour
     {
         Instance = this;
     }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
             Victory.SetActive(true);
         }
+    }
+
+    public void SaveScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("LastSceneIndex", currentSceneIndex);
+        PlayerPrefs.Save();
     }
 
     private void UpdateHealthBar()

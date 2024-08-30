@@ -41,10 +41,5 @@ public class PrincipalMenu : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void SaveScene()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetInt("LastSceneIndex", currentSceneIndex);
-        PlayerPrefs.Save();
-    }
+
 }
