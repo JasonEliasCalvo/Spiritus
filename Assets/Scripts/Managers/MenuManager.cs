@@ -63,7 +63,6 @@ public class MenuManager : MonoBehaviour
         {
             StartCoroutine(AnimDamage());
         }    
-
     }
     public void ShowEnemyInfo()
     {

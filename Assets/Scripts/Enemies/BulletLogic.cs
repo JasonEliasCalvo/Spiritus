@@ -16,11 +16,12 @@ public class BulletLogic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PlayerStats playerHealth))
-        {
-            playerHealth.DamagePlayer(damage);
-            MenuManager.Instance.ShowPlayerInfo();
-            Destroy(gameObject);
+            if (collision.TryGetComponent(out PlayerStats playerHealth))
+            {
+                playerHealth.DamagePlayer(damage);
+
+                MenuManager.Instance.ShowPlayerInfo();
+                Destroy(gameObject);
         }
     }
 }

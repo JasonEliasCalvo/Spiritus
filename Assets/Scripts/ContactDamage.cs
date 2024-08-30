@@ -10,7 +10,10 @@ public class ContactDamage : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            other.gameObject.GetComponent<PlayerStats>().DamagePlayer(damage);
-            MenuManager.Instance.ShowPlayerInfo();
+        {
+           PlayerStats playerHealt = other.gameObject.GetComponent<PlayerStats>();
+           playerHealt.DamagePlayer(damage);
+           MenuManager.Instance.ShowPlayerInfo();
+        }
     }
 }

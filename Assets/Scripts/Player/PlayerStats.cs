@@ -14,17 +14,18 @@ public class PlayerStats : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     public void DamagePlayer(int damage)
     {
         health -= damage;
-        StartCoroutine(AnimDamage());
+        StartCoroutine(AnimationDamage());
 
         if (health <= 0)
         {
             PlayerDeath();
         }
     }
-    IEnumerator AnimDamage()
+    IEnumerator AnimationDamage()
     {
         for (int i = 0; i < 6; i++)
         {
